@@ -1,26 +1,147 @@
-function App() {
+import { useEffect, useState } from 'react'
+
+const mdmTools = ['Apple Business Manager', 'Apple School Manager', 'Jamf Pro', 'Jamf School', 'Jamf Protect', 'Hexnode UEM', 'eSchoolPad (eSP)']
+
+const skills = [
+  { number: '01', title: 'Mobile Device Management', items: mdmTools },
+  { number: '02', title: 'Networking & Security', items: ['TCP/IP', 'VLAN', 'STP', 'DHCP', 'LAN/WAN', 'Firewalls', 'IP Subnetting'] },
+  { number: '03', title: 'Network Tools & Infrastructure', items: ['Cisco Packet Tracer', 'Starlink Installation'] },
+  { number: '04', title: 'Programming & Troubleshooting', items: ['C++', 'Python', 'MATLAB', 'Network Troubleshooting', 'Code Debugging'] },
+  { number: '05', title: 'AI Chatbot Development', items: ['Training Large Language Models', 'ChatGPT', 'Claude AI'] },
+  { number: '06', title: 'Productivity & Learning Systems', items: ['Microsoft Office', 'Google Workspace', 'ClassIn LMS'] },
+]
+
+const certifications = [
+  { title: 'Jamf Security Consultant', issuer: 'Jamf', year: '2026', category: 'MDM' },
+  { title: 'Jamf Management Engineer', issuer: 'Jamf', year: '2026', category: 'MDM' },
+  { title: 'Jamf Management Consultant', issuer: 'Jamf', year: '2026', category: 'MDM' },
+  { title: 'Hexnode Specialist — iOS', issuer: 'Hexnode', year: '2026', category: 'MDM' },
+  { title: 'Hexnode Specialist — macOS', issuer: 'Hexnode', year: '2026', category: 'MDM' },
+  { title: 'Hexnode Specialist — tvOS', issuer: 'Hexnode', year: '2026', category: 'MDM' },
+  { title: 'Hexnode Specialist — Windows', issuer: 'Hexnode', year: '2026', category: 'MDM' },
+  { title: 'Hexnode Specialist — Android', issuer: 'Hexnode', year: '2026', category: 'MDM' },
+  { title: 'Hexnode Professional — iOS', issuer: 'Hexnode', year: '2026', category: 'MDM' },
+  { title: 'Hexnode Professional — macOS', issuer: 'Hexnode', year: '2026', category: 'MDM' },
+  { title: 'Hexnode Professional — Windows', issuer: 'Hexnode', year: '2026', category: 'MDM' },
+  { title: 'Hexnode Professional — Android', issuer: 'Hexnode', year: '2026', category: 'MDM' },
+  { title: 'Hexnode UEM Mastery', issuer: 'Hexnode', year: '2026', category: 'MDM' },
+  { title: 'Jamf Certified Associate — Jamf Pro', issuer: 'Jamf', year: '2026', category: 'MDM' },
+  { title: 'Jamf Certified Associate — Jamf School', issuer: 'Jamf', year: '2026', category: 'MDM' },
+  { title: 'Jamf Certified Associate — Jamf Protect', issuer: 'Jamf', year: '2026', category: 'MDM' },
+  { title: 'Junior Cybersecurity Analyst Career Path', issuer: 'Cisco Networking Academy', year: '2025', category: 'Cybersecurity' },
+  { title: 'Cybersecurity Essentials', issuer: 'Cisco Networking Academy', year: '2025', category: 'Cybersecurity' },
+  { title: 'Introduction to Cybersecurity', issuer: 'Cisco Networking Academy', year: '2025', category: 'Cybersecurity' },
+  { title: 'Introduction to Cybersecurity Tools & Cyberattacks V3', issuer: 'IBM | Coursera', year: '2024', category: 'Cybersecurity' },
+  { title: 'CCNAv7: Switching, Routing, and Wireless Essentials', issuer: 'Cisco Networking Academy', year: '2024', category: 'Networking' },
+  { title: 'CCNAv7: Introduction to Networks', issuer: 'Cisco Networking Academy', year: '2024', category: 'Networking' },
+]
+
+function SectionLabel({ index, children }) { return <div className="section-label"><span>{index}</span><span>{children}</span></div> }
+function Arrow() { return <span aria-hidden="true" className="arrow">↗</span> }
+function ContactIcon({ type }) {
+  if (type === 'email') return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5h18v13H3z" /><path d="m3 7 9 6 9-6" /></svg>
+  if (type === 'linkedin') return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8.5V19M5 5v.01M10 19v-6a4 4 0 0 1 8 0v6M10 10v9" /></svg>
+  return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6zM14 3v5h5M9 13h6M9 17h6" /></svg>
+}
+
+const pestawayImages = [
+  { src: '/assets/pestaway-defense.png', label: 'PestAway project identity', alt: 'PestAway thesis presentation graphic with a Filipino chatbot mascot' },
+  { src: '/assets/pestaway-chat.png', label: 'Bilingual chat interaction', alt: 'PestAway chatbot answering a Tagalog farming question' },
+  { src: '/assets/pestaway-voice.png', label: 'Speech capability', alt: 'PestAway interface showing text, voice input, and chatbot voice response features' },
+]
+
+function PestawayStack() {
+  const [activeImage, setActiveImage] = useState(0)
+  const image = pestawayImages[activeImage]
+
   return (
-    <main className="min-h-screen bg-zinc-950 text-white">
-      <section className="flex min-h-screen items-center justify-center">
-        <div className="text-center">
-          <p className="mb-3 text-sm text-zinc-400">
-            Hello, I'm
-          </p>
+    <div className="thesis-stack" aria-label="PestAway thesis snapshots">
+      <div className="visual-topline"><span>THESIS / 2024</span><span>{String(activeImage + 1).padStart(2, '0')} / 03</span></div>
+      <div className="stack-stage"><img src={image.src} alt={image.alt} /><span>{image.label}</span></div>
+      <div className="stack-controls" aria-label="Choose a thesis snapshot">{pestawayImages.map((item, index) => <button className={`stack-card stack-card-${index + 1} ${index === activeImage ? 'is-active' : ''}`} type="button" key={item.src} onMouseEnter={() => setActiveImage(index)} onFocus={() => setActiveImage(index)} onClick={() => setActiveImage(index)} aria-label={`Show ${item.label}`} aria-pressed={index === activeImage}><img src={item.src} alt="" /><span>{String(index + 1).padStart(2, '0')}</span></button>)}</div>
+    </div>
+  )
+}
 
-          <h1 className="text-5xl font-bold">
-            Jastin Brylle Villanueva, ECE, ECT
-          </h1>
+function CertificationArchive() {
+  const [activeCategory, setActiveCategory] = useState('All')
+  const [selectedCertification, setSelectedCertification] = useState(null)
+  const categories = ['All', ...new Set(certifications.map((certification) => certification.category))]
+  const visibleCertifications = activeCategory === 'All' ? certifications : certifications.filter((certification) => certification.category === activeCategory)
 
-          <p className="mt-4 text-xl text-zinc-400">
-            Integration Engineer
-          </p>
+  return (
+    <div className="certifications-panel">
+      <div className="certifications-heading"><span className="card-label">Credentials Index</span><h3>Certifications &amp; Badges</h3><p>A visual archive of completed certifications and learning paths.</p><div className="certification-filters" aria-label="Filter certifications">{categories.map((category) => <button className={activeCategory === category ? 'is-active' : ''} type="button" key={category} onClick={() => setActiveCategory(category)} aria-pressed={activeCategory === category}>{category}</button>)}</div></div>
+      <div className="certification-grid">{visibleCertifications.map((certification) => <button className="certification-card" type="button" key={certification.title} onClick={() => setSelectedCertification(certification)}><span className="certificate-preview">{certification.image ? <img src={certification.image} alt={`${certification.title} certificate`} /> : <span>Certificate<br />Image Pending</span>}</span><span className="certificate-meta"><strong>{certification.title}</strong><small>{certification.issuer} · {certification.year}</small></span></button>)}</div>
+      {selectedCertification && <div className="certificate-modal" role="dialog" aria-modal="true" aria-label={selectedCertification.title} onClick={() => setSelectedCertification(null)}><div className="certificate-modal-content" onClick={(event) => event.stopPropagation()}><button className="certificate-close" type="button" onClick={() => setSelectedCertification(null)} aria-label="Close certificate viewer">×</button><div className="certificate-modal-image">{selectedCertification.image ? <img src={selectedCertification.image} alt={`${selectedCertification.title} certificate`} /> : <span>Certificate image<br />to be added</span>}</div><p>{selectedCertification.title}</p><small>{selectedCertification.issuer} · {selectedCertification.year}</small></div></div>}
+    </div>
+  )
+}
 
-          <button className="mt-8 rounded-lg bg-white px-6 py-3 font-medium text-black">
-            View my work
-          </button>
-        </div>
-      </section>
-    </main>
+function App() {
+  const [darkMode, setDarkMode] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = darkMode ? 'dark' : 'light'
+  }, [darkMode])
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const timer = window.setTimeout(() => {
+      setIsLoading(false)
+      document.body.style.overflow = ''
+    }, reducedMotion ? 850 : 5000)
+
+    return () => {
+      window.clearTimeout(timer)
+      document.body.style.overflow = ''
+    }
+  }, [])
+
+  return (
+    <div className={`site-shell ${darkMode ? 'dark-theme' : ''}`}>
+      {isLoading && <div className="preloader" role="status" aria-live="polite" aria-label="Loading portfolio"><div className="preloader-mark" aria-hidden="true">JCV<span>.</span></div><div className="preloader-track" aria-hidden="true"><span /></div><div className="preloader-meta"><span>Initializing portfolio</span><span>01 / 01</span></div></div>}
+      <header className="site-header">
+        <a className="wordmark" href="#top" aria-label="Jastin Brylle Villanueva home">JCV<span className="accent">.</span></a>
+        <nav aria-label="Primary navigation">
+          <a href="#projects">Projects</a><a href="#about">About Me</a><a href="#stack">Tech Stack</a><a href="#extra">Credentials</a><a href="#contact" className="nav-contact">Get in Touch <Arrow /></a><button className="theme-toggle" type="button" onClick={() => setDarkMode((current) => !current)} aria-pressed={darkMode} aria-label={`Switch to ${darkMode ? 'light' : 'dark'} mode`}><span aria-hidden="true">{darkMode ? '☼' : '◐'}</span> {darkMode ? 'Light' : 'Dark'}</button>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section className="hero-section page-section" aria-labelledby="hero-title">
+          <div className="hero-copy">
+            <p className="eyebrow">Integration Engineer <span className="status-dot" /> Manila, PH</p>
+            <p className="hero-name">Nice to meet you, I&apos;m Jastin Brylle Villanueva.</p>
+            <h1 id="hero-title">I make complex<br /><em>systems work together.</em></h1>
+            <p className="hero-summary">I explore and integrate tools across <strong>Enterprise and Education Infrastructure</strong> from Apple Device Management and Networks to AI Chatbot Development with a focus on Large Language Models and the documentation that makes them understandable.</p>
+            <div className="hero-actions"><a className="button button-primary" href="#projects">Explore my work <Arrow /></a><a className="text-link" href="#contact">Let&apos;s connect <Arrow /></a></div>
+          </div>
+          <div className="portrait-frame"><img className="portrait-image" src={darkMode ? '/assets/portrait-dark.jpg' : '/assets/portrait-light.jpg'} alt={darkMode ? 'Jastin Brylle Villanueva wearing his graduation toga' : 'Jastin Brylle Villanueva in a traditional formal shirt'} /><span className="frame-index">01 / 06</span></div>
+        </section>
+
+        <div className="signal-strip" aria-label="Areas of practice"><span>Mobile Device Management</span><i /><span>Network</span><i /><span>AI Chatbot Development</span></div>
+
+        <section className="page-section projects-section" id="projects" aria-labelledby="projects-title">
+          <div className="section-heading"><SectionLabel index="01">Projects</SectionLabel><h2 id="projects-title">Work that connects<br /><em>people to technology.</em></h2><p>Selected work from my academic and professional practice. Internal client material stays private; the thinking, systems, and publicly shareable outcomes remain visible here.</p></div>
+          <article className="feature-project">
+            <PestawayStack />
+            <div className="project-content"><div className="project-kicker"><span>Featured Project</span><span>AI / LLM / SPEECH</span></div><h3>PestAway: A Pest Management Chatbot with Integrated Speech Capabilities</h3><p className="project-lede">PestAway is a bilingual (English and Tagalog) speech-enabled AI chatbot developed to help Filipino farmers manage pest control and reduce crop loss through accessible, real-time advice. Using GPT-4 and credible agricultural sources based from the Philippines, an 80,000-item dataset was built and used to fine-tune Large Language Models using SFT, DPO, and ORPO training techniques. The ORPO-trained model delivered top-tier performance, reaching a 0.7316 BERTScore and an average perplexity of 1.5185, while speech recognition models achieved precise voice querying with Character Error Rates as low as 0% to 3.43%. Field testing with farmers, students, and agricultural enthusiasts yielded an average user rating above 4.1 out of 5, with a 100% recommendation rate highlighting the chatbot&apos;s precision, bilingual performance, and real-world utility.</p><p>I contributed to researching and testing various AI Large Language Models that support bilingual use, specifically English and Tagalog. I researched, gathered, and prepared a Philippines-based dataset, and trained and evaluated models using <strong>SFT, DPO, and ORPO</strong>. We tested whether PestAway understood context and produced accurate answers.</p><div className="project-footer"><span>THESIS CONTRIBUTION</span><span className="project-links"><a className="text-link" href="https://ieeexplore.ieee.org/document/11375077" target="_blank" rel="noreferrer">Read the Thesis Paper <Arrow /></a><a className="text-link" href="#contact">Discuss the Project <Arrow /></a></span></div></div>
+          </article>
+          <div className="project-notes"><div><span className="note-number">02</span><strong>Current Integration Practice</strong><p>Exploring Mobile Device Management, Identity and Access Management, Learning Management Systems, Productivity, Network, Security, and Artificial Intelligence solutions for Enterprise and Education environments.</p></div><div><span className="note-number">03</span><strong>Documentation as Infrastructure</strong><p>Turning Proof-of-Concept steps and troubleshooting paths into clear references teams can use and trust.</p></div></div>
+        </section>
+
+        <section className="page-section about-section" id="about" aria-labelledby="about-title"><div className="section-heading compact-heading"><SectionLabel index="02">About Me</SectionLabel><h2 id="about-title">A systems thinker with<br /><em>an engineer&apos;s patience.</em></h2></div><div className="about-layout"><figure className="about-photo"><img src="/assets/about-me-upscaled.png" alt="Jastin Brylle Villanueva holding a MacBook during a technology event" /></figure><div className="about-copy"><div className="about-lead"><p>I am an <strong>Integration Engineer</strong> and a licensed Electronics Engineer and Electronics Technician. My work sits between systems: understanding what each one needs, testing how they behave together, and making the path repeatable for the people who come after.</p></div><div className="about-body"><p>I work across Apple device management, networks, security, learning systems, productivity tools, and applied artificial intelligence. I am also building toward a future in network engineering.</p><p>My approach is practical and investigative: ask the right question, isolate the variables, document what worked, and leave the system clearer than I found it.</p></div></div></div><div className="interest-line"><span>OFF THE CLOCK</span><span>Games <i /> Music <i /> Sports</span></div></section>
+
+        <section className="page-section stack-section" id="stack" aria-labelledby="stack-title"><div className="section-heading"><SectionLabel index="03">Tech Stack</SectionLabel><h2 id="stack-title">The tools are different.<br /><em>The method is consistent.</em></h2><p>A working index of the platforms, concepts, and tools I use to investigate, integrate, and explain technical systems.</p></div><div className="skills-grid">{skills.map((skill) => <div className="skill-item" key={skill.number}><span className="skill-number">{skill.number}</span><h3>{skill.title}</h3><div className="skill-tags">{skill.items.map((item) => <span key={item}>{item}</span>)}</div></div>)}</div></section>
+
+        <section className="page-section extra-section" id="extra" aria-labelledby="extra-title"><div className="section-heading compact-heading"><SectionLabel index="04">Extra & Certifications</SectionLabel><h2 id="extra-title">Proof of practice,<br /><em>not just a list.</em></h2></div><div className="credentials-layout"><div className="license-card"><span className="card-label">Professional Licenses</span><div className="license-row"><span>ECE</span><strong>Licensed Electronics Engineer<small>October 2025</small></strong></div><div className="license-row"><span>ECT</span><strong>Licensed Electronics Technician<small>October 2025</small></strong></div></div><div className="credentials-note"><span className="card-label">Recognition</span><h3>Thesis Recognition</h3><p>PestAway represents the academic work I am most proud of: applying model training, evaluation, and speech capability to a problem grounded in the Philippines.</p><div className="recognition-list"><strong>IEEE Region 10 International Conference TENCON</strong><strong>FUSERS 2025 — Research Colloquium: 1st Runner-Up for Best Video Presentation</strong></div></div></div><CertificationArchive /></section>
+
+        <section className="page-section contact-section" id="contact" aria-labelledby="contact-title"><div className="contact-rule" /><SectionLabel index="05">Contact</SectionLabel><div className="contact-layout"><div><h2 id="contact-title">Let&apos;s connect<br /><em>the next system.</em></h2><p>I&apos;m open to conversations about integration engineering, endpoint management, enterprise and education infrastructure, and network-focused opportunities.</p></div><div className="contact-links"><a href="mailto:villanuevajastin.b.c@gmail.com"><span className="contact-link-main"><span className="contact-icon"><ContactIcon type="email" /></span><span>Email Me</span></span><span className="contact-link-meta">villanuevajastin.b.c@gmail.com <Arrow /></span></a><a href="https://www.linkedin.com/in/jastin-brylle-villanueva-ece-ect-5a07672b5/" target="_blank" rel="noreferrer"><span className="contact-link-main"><span className="contact-icon"><ContactIcon type="linkedin" /></span><span>LinkedIn</span></span><span className="contact-link-meta">View My Profile <Arrow /></span></a><a href="https://drive.google.com/file/d/1RlW59AWfB5zLasD2tQEQaB-_4lvzmlAH/view?usp=sharing" target="_blank" rel="noreferrer"><span className="contact-link-main"><span className="contact-icon"><ContactIcon type="resume" /></span><span>Résumé</span></span><span className="contact-link-meta">View Resume PDF <Arrow /></span></a></div></div><footer><span>JCV<span className="accent">.</span> / INTEGRATION ENGINEER</span><span>© 2026</span></footer></section>
+      </main>
+    </div>
   )
 }
 
