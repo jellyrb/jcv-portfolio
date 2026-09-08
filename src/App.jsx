@@ -12,28 +12,29 @@ const skills = [
 ]
 
 const certifications = [
-  { title: 'Jamf Security Consultant', issuer: 'Jamf', year: '2026', category: 'MDM' },
-  { title: 'Jamf Management Engineer', issuer: 'Jamf', year: '2026', category: 'MDM' },
-  { title: 'Jamf Management Consultant', issuer: 'Jamf', year: '2026', category: 'MDM' },
-  { title: 'Hexnode Specialist — iOS', issuer: 'Hexnode', year: '2026', category: 'MDM' },
-  { title: 'Hexnode Specialist — macOS', issuer: 'Hexnode', year: '2026', category: 'MDM' },
-  { title: 'Hexnode Specialist — tvOS', issuer: 'Hexnode', year: '2026', category: 'MDM' },
-  { title: 'Hexnode Specialist — Windows', issuer: 'Hexnode', year: '2026', category: 'MDM' },
-  { title: 'Hexnode Specialist — Android', issuer: 'Hexnode', year: '2026', category: 'MDM' },
-  { title: 'Hexnode Professional — iOS', issuer: 'Hexnode', year: '2026', category: 'MDM' },
-  { title: 'Hexnode Professional — macOS', issuer: 'Hexnode', year: '2026', category: 'MDM' },
-  { title: 'Hexnode Professional — Windows', issuer: 'Hexnode', year: '2026', category: 'MDM' },
-  { title: 'Hexnode Professional — Android', issuer: 'Hexnode', year: '2026', category: 'MDM' },
-  { title: 'Hexnode UEM Mastery', issuer: 'Hexnode', year: '2026', category: 'MDM' },
-  { title: 'Jamf Certified Associate — Jamf Pro', issuer: 'Jamf', year: '2026', category: 'MDM' },
-  { title: 'Jamf Certified Associate — Jamf School', issuer: 'Jamf', year: '2026', category: 'MDM' },
-  { title: 'Jamf Certified Associate — Jamf Protect', issuer: 'Jamf', year: '2026', category: 'MDM' },
-  { title: 'Junior Cybersecurity Analyst Career Path', issuer: 'Cisco Networking Academy', year: '2025', category: 'Cybersecurity' },
-  { title: 'Cybersecurity Essentials', issuer: 'Cisco Networking Academy', year: '2025', category: 'Cybersecurity' },
-  { title: 'Introduction to Cybersecurity', issuer: 'Cisco Networking Academy', year: '2025', category: 'Cybersecurity' },
-  { title: 'Introduction to Cybersecurity Tools & Cyberattacks V3', issuer: 'IBM | Coursera', year: '2024', category: 'Cybersecurity' },
-  { title: 'CCNAv7: Switching, Routing, and Wireless Essentials', issuer: 'Cisco Networking Academy', year: '2024', category: 'Networking' },
-  { title: 'CCNAv7: Introduction to Networks', issuer: 'Cisco Networking Academy', year: '2024', category: 'Networking' },
+  { title: 'Jamf Security Consultant', issuer: 'Jamf', year: '2026', category: 'MDM', image: '/assets/certifications/jamf-security-consultant.png' },
+  { title: 'Jamf Management Engineer', issuer: 'Jamf', year: '2026', category: 'MDM', image: '/assets/certifications/jamf-management-engineer.png' },
+  { title: 'Jamf Management Consultant', issuer: 'Jamf', year: '2026', category: 'MDM', image: '/assets/certifications/jamf-management-consultant.png' },
+  { title: 'Hexnode Specialist — iOS', issuer: 'Hexnode', year: '2026', category: 'MDM', image: '/assets/certifications/hexnode-specialist-ios.png' },
+  { title: 'Hexnode Specialist — macOS', issuer: 'Hexnode', year: '2026', category: 'MDM', image: '/assets/certifications/hexnode-specialist-macos.png' },
+  { title: 'Hexnode Certified Expert — tvOS', issuer: 'Hexnode', year: '2026', category: 'MDM', image: '/assets/certifications/hexnode-expert-tvos.png' },
+  { title: 'Hexnode Specialist — Windows', issuer: 'Hexnode', year: '2026', category: 'MDM', image: '/assets/certifications/hexnode-specialist-windows.png' },
+  { title: 'Hexnode Specialist — Android', issuer: 'Hexnode', year: '2026', category: 'MDM', image: '/assets/certifications/hexnode-specialist-android.png' },
+  { title: 'Hexnode Professional — iOS', issuer: 'Hexnode', year: '2026', category: 'MDM', image: '/assets/certifications/hexnode-professional-ios.png' },
+  { title: 'Hexnode Professional — macOS', issuer: 'Hexnode', year: '2026', category: 'MDM', image: '/assets/certifications/hexnode-professional-macos.png' },
+  { title: 'Hexnode Professional — Windows', issuer: 'Hexnode', year: '2026', category: 'MDM', image: '/assets/certifications/hexnode-professional-windows.png' },
+  { title: 'Hexnode Professional — Android', issuer: 'Hexnode', year: '2026', category: 'MDM', image: '/assets/certifications/hexnode-professional-android.png' },
+  { title: 'Hexnode UEM Mastery', issuer: 'Hexnode', year: '2026', category: 'MDM', image: '/assets/certifications/hexnode-certified-expert.png' },
+  { title: 'Jamf Certified Associate — Jamf Pro', issuer: 'Jamf', year: '2026', category: 'MDM', image: '/assets/certifications/jamf-pro.png' },
+  { title: 'Jamf Certified Associate — Jamf School', issuer: 'Jamf', year: '2026', category: 'MDM', image: '/assets/certifications/jamf-school.png' },
+  { title: 'Jamf Certified Associate — Jamf Protect', issuer: 'Jamf', year: '2026', category: 'MDM', image: '/assets/certifications/jamf-protect.png' },
+  { title: 'Junior Cybersecurity Analyst Career Path', issuer: 'Cisco Networking Academy', year: '2025', category: 'Cybersecurity', image: '/assets/certifications/junior-cybersecurity-analyst.png' },
+  { title: 'Cybersecurity Essentials', issuer: 'Cisco Networking Academy', year: '2025', category: 'Cybersecurity', image: '/assets/certifications/cybersecurity-essentials.png' },
+  { title: 'Introduction to Cybersecurity', issuer: 'Cisco Networking Academy', year: '2025', category: 'Cybersecurity', image: '/assets/certifications/introduction-to-cybersecurity.png' },
+  { title: 'Introduction to Cybersecurity Tools & Cyberattacks V3', issuer: 'IBM | Coursera', year: '2024', category: 'Cybersecurity', image: '/assets/certifications/ibm-cybersecurity-tools.png' },
+  { title: 'CCNAv7: Switching, Routing, and Wireless Essentials', issuer: 'Cisco Networking Academy', year: '2024', category: 'Networking', image: '/assets/certifications/ccna-switching-routing-wireless.png' },
+  { title: 'CCNAv7: Introduction to Networks', issuer: 'Cisco Networking Academy', year: '2024', category: 'Networking', image: '/assets/certifications/ccna-introduction-to-networks.png' },
+  { title: 'Google Workspace Seminar and Workshop', issuer: 'SMSGT Global Technologies Inc.', year: '2024', category: 'Productivity', image: '/assets/certifications/google-workspace-seminar.png' },
 ]
 
 function SectionLabel({ index, children }) { return <div className="section-label"><span>{index}</span><span>{children}</span></div> }
@@ -65,15 +66,34 @@ function PestawayStack() {
 
 function CertificationArchive() {
   const [activeCategory, setActiveCategory] = useState('All')
-  const [selectedCertification, setSelectedCertification] = useState(null)
+  const [selectedIndex, setSelectedIndex] = useState(null)
   const categories = ['All', ...new Set(certifications.map((certification) => certification.category))]
   const visibleCertifications = activeCategory === 'All' ? certifications : certifications.filter((certification) => certification.category === activeCategory)
+  const selectedCertification = selectedIndex === null ? null : visibleCertifications[selectedIndex]
+  const moveSelection = (direction) => setSelectedIndex((current) => (current + direction + visibleCertifications.length) % visibleCertifications.length)
+
+  useEffect(() => {
+    if (selectedIndex === null) return undefined
+    const handleKeyDown = (event) => {
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault()
+        setSelectedIndex((current) => (current - 1 + visibleCertifications.length) % visibleCertifications.length)
+      }
+      if (event.key === 'ArrowRight') {
+        event.preventDefault()
+        setSelectedIndex((current) => (current + 1) % visibleCertifications.length)
+      }
+      if (event.key === 'Escape') setSelectedIndex(null)
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [selectedIndex, visibleCertifications.length])
 
   return (
     <div className="certifications-panel">
-      <div className="certifications-heading"><span className="card-label">Credentials Index</span><h3>Certifications &amp; Badges</h3><p>A visual archive of completed certifications and learning paths.</p><div className="certification-filters" aria-label="Filter certifications">{categories.map((category) => <button className={activeCategory === category ? 'is-active' : ''} type="button" key={category} onClick={() => setActiveCategory(category)} aria-pressed={activeCategory === category}>{category}</button>)}</div></div>
-      <div className="certification-grid">{visibleCertifications.map((certification) => <button className="certification-card" type="button" key={certification.title} onClick={() => setSelectedCertification(certification)}><span className="certificate-preview">{certification.image ? <img src={certification.image} alt={`${certification.title} certificate`} /> : <span>Certificate<br />Image Pending</span>}</span><span className="certificate-meta"><strong>{certification.title}</strong><small>{certification.issuer} · {certification.year}</small></span></button>)}</div>
-      {selectedCertification && <div className="certificate-modal" role="dialog" aria-modal="true" aria-label={selectedCertification.title} onClick={() => setSelectedCertification(null)}><div className="certificate-modal-content" onClick={(event) => event.stopPropagation()}><button className="certificate-close" type="button" onClick={() => setSelectedCertification(null)} aria-label="Close certificate viewer">×</button><div className="certificate-modal-image">{selectedCertification.image ? <img src={selectedCertification.image} alt={`${selectedCertification.title} certificate`} /> : <span>Certificate image<br />to be added</span>}</div><p>{selectedCertification.title}</p><small>{selectedCertification.issuer} · {selectedCertification.year}</small></div></div>}
+      <div className="certifications-heading"><span className="card-label">Credentials Index</span><h3>Certifications &amp; Badges</h3><p>A visual archive of completed certifications and learning paths.</p><div className="certification-filters" aria-label="Filter certifications">{categories.map((category) => <button className={activeCategory === category ? 'is-active' : ''} type="button" key={category} onClick={() => { setActiveCategory(category); setSelectedIndex(null) }} aria-pressed={activeCategory === category}>{category}</button>)}</div></div>
+      <div className="certification-grid">{visibleCertifications.map((certification, index) => <button className="certification-card" type="button" key={certification.title} onClick={() => setSelectedIndex(index)}><span className="certificate-preview">{certification.image ? <img src={certification.image} alt={`${certification.title} certificate`} /> : <span>Certificate<br />Image Pending</span>}</span><span className="certificate-meta"><strong>{certification.title}</strong><small>{certification.issuer} · {certification.year}</small></span></button>)}</div>
+      {selectedCertification && <div className="certificate-modal" role="dialog" aria-modal="true" aria-label={selectedCertification.title} onClick={() => setSelectedIndex(null)}><div className="certificate-modal-content" onClick={(event) => event.stopPropagation()}><button className="certificate-close" type="button" onClick={() => setSelectedIndex(null)} aria-label="Close certificate viewer">×</button><button className="certificate-nav certificate-nav-prev" type="button" onClick={() => moveSelection(-1)} aria-label="Previous certification">←</button><div className="certificate-modal-image">{selectedCertification.image ? <img src={selectedCertification.image} alt={`${selectedCertification.title} certificate`} /> : <span>Certificate image<br />to be added</span>}</div><button className="certificate-nav certificate-nav-next" type="button" onClick={() => moveSelection(1)} aria-label="Next certification">→</button><p>{selectedCertification.title}</p><small>{selectedCertification.issuer} · {selectedCertification.year}</small></div></div>}
     </div>
   )
 }
