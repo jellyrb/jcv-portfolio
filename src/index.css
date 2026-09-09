@@ -106,7 +106,9 @@ h1, h2, h3, p { margin-top: 0; } h1, h2 { letter-spacing: -.055em; line-height: 
 @media (max-width: 600px) { .profile-strip { grid-template-columns: 1fr; gap: 24px; } }
 .back-to-top { position: fixed; z-index: 10; right: 24px; bottom: 24px; display: inline-flex; align-items: center; gap: 9px; padding: 12px 14px; border: 1px solid #9aacbb; color: #102238; background: rgba(238,243,247,.92); font-size: 10px; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; box-shadow: 0 8px 22px rgba(16,34,56,.12); backdrop-filter: blur(8px); } .back-to-top > span:first-child { font-size: 18px; line-height: .7; } .back-to-top:hover, .back-to-top:focus-visible { border-color: #ee765e; color: #ee765e; }
 .dark-theme .back-to-top { border-color: #6e8497; color: #e3ecf3; background: rgba(13,23,37,.92); }
+.dark-theme .frame-index { color: #9cafc1; }
 @media (max-width: 600px) { .back-to-top { right: 16px; bottom: 16px; } .back-to-top > span:last-child { display: none; } }
+@media (max-width: 800px) { .portrait-column { width: 100%; max-width: 390px; justify-self: center; align-items: center; } }
 
 .thesis-stack { position: relative; min-height: 470px; overflow: hidden; background: #122b46; color: #c4d2de; }
 .stack-stage { position: absolute; inset: 58px 24px 88px; overflow: hidden; background: #0e1d2d; }
