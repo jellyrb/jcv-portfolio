@@ -151,7 +151,7 @@ function App() {
             <p className="hero-summary">I explore and integrate tools across <strong>Enterprise and Education Infrastructure</strong> from Apple Device Management and Networks to AI Chatbot Development with a focus on Large Language Models and the documentation that makes them understandable.</p>
             <div className="hero-actions"><a className="button button-primary" href="#projects">Explore my work <Arrow /></a><a className="text-link" href="#contact">Let&apos;s connect <Arrow /></a></div>
           </div>
-          <div className="portrait-frame"><img className="portrait-image" src={darkMode ? '/assets/portrait-dark.jpg' : '/assets/portrait-light.jpg'} alt={darkMode ? 'Jastin Brylle Villanueva wearing his graduation toga' : 'Jastin Brylle Villanueva in a traditional formal shirt'} /><span className="frame-index">01 / 06</span></div>
+          <div className="portrait-column"><div className="portrait-frame"><img className="portrait-image" src={darkMode ? '/assets/portrait-dark.jpg' : '/assets/portrait-light.jpg'} alt={darkMode ? 'Jastin Brylle Villanueva wearing his graduation toga' : 'Jastin Brylle Villanueva in a traditional formal shirt'} /></div><span className="frame-index">01 / 06</span></div>
         </section>
 
         <div className="signal-strip" aria-label="Areas of practice"><span>Mobile Device Management</span><i /><span>Network</span><i /><span>AI Chatbot Development</span></div>
