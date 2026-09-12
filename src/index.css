@@ -102,6 +102,12 @@ h1, h2, h3, p { margin-top: 0; } h1, h2 { letter-spacing: -.055em; line-height: 
 .about-photo { width: 100%; max-width: none; margin: 0; }
 .about-section .compact-heading h2 { text-align: center; }
 .about-lead p, .about-body p { text-align: left; }
+.project-content h3 { font-weight: 780; }
+.project-content > p { margin-bottom: 0; }
+.project-content > p + p { margin-top: 30px; padding-top: 24px; border-top: 1px solid #b8c8d4; }
+.about-lead { margin-bottom: 28px; }
+.about-body p + p { margin-top: 18px; }
+.dark-theme .project-content > p + p { border-color: #3a5268; }
 @media (max-width: 800px) { .about-layout { grid-template-columns: 1fr; gap: 30px; } .about-copy { grid-template-columns: 1fr; gap: 28px; } .about-photo { margin: 0; } }
 @media (max-width: 600px) { .profile-strip { grid-template-columns: 1fr; gap: 24px; } }
 .back-to-top { position: fixed; z-index: 10; right: 24px; bottom: 24px; display: inline-flex; align-items: center; gap: 9px; padding: 12px 14px; border: 1px solid #9aacbb; color: #102238; background: rgba(238,243,247,.92); font-size: 10px; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; box-shadow: 0 8px 22px rgba(16,34,56,.12); backdrop-filter: blur(8px); } .back-to-top > span:first-child { font-size: 18px; line-height: .7; } .back-to-top:hover, .back-to-top:focus-visible { border-color: #ee765e; color: #ee765e; }
@@ -116,6 +122,38 @@ h1, h2, h3, p { margin-top: 0; } h1, h2 { letter-spacing: -.055em; line-height: 
 .stack-stage::after { position: absolute; inset: 0; content: ''; background: linear-gradient(180deg, rgba(18,43,70,.05), rgba(18,43,70,.55)); pointer-events: none; }
 .stack-stage img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: center; }
 .stack-stage span { position: absolute; z-index: 1; right: 15px; bottom: 13px; color: #eef3f7; font-size: 10px; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
+.portfolio-project { margin-top: 32px; }
+.portfolio-project-visual { position: relative; min-height: 470px; overflow: hidden; padding: 26px; color: #dce8ef; background: #102238; }
+.portfolio-project-visual::before { position: absolute; top: 98px; right: -90px; width: 330px; height: 330px; border: 1px solid rgba(143,181,207,.28); border-radius: 50%; content: ''; box-shadow: 0 0 0 32px rgba(143,181,207,.04), 0 0 0 78px rgba(143,181,207,.035); }
+.portfolio-window-top, .portfolio-nav { position: relative; z-index: 1; display: flex; justify-content: space-between; color: #8ea8bc; font-size: 10px; font-weight: 750; letter-spacing: .13em; text-transform: uppercase; }
+.portfolio-window-top b { color: #ee765e; font-size: 18px; letter-spacing: -.08em; }
+.portfolio-window-body { position: relative; z-index: 1; margin-top: 116px; }
+.portfolio-kicker { display: block; margin-bottom: 20px; color: #ee765e; font-size: 10px; font-weight: 750; letter-spacing: .13em; }
+.portfolio-window-body strong { display: block; color: #eef3f7; font-size: clamp(34px, 4vw, 52px); line-height: .98; letter-spacing: -.06em; }
+.portfolio-window-body em { color: #9cafc1; font-style: normal; font-weight: 420; }
+.portfolio-line { display: block; width: 180px; height: 1px; margin-top: 34px; background: #6e8497; }
+.portfolio-line.short { width: 112px; margin-top: 10px; background: #ee765e; }
+.portfolio-nav { position: absolute; right: 26px; bottom: 26px; left: 26px; }
+.thesis-stack { min-height: 0; aspect-ratio: 988 / 790; background: #0d1d2d; }
+.thesis-stack .stack-stage { inset: 52px 24px 24px; border: 1px solid #45627a; background: #222a31; }
+.thesis-stack .stack-stage::before { display: none; }
+.thesis-stack .stack-stage::after { display: none; }
+.thesis-stack .stack-stage img { filter: none; }
+.thesis-project .thesis-stack { min-height: 470px; aspect-ratio: auto; background: #1e1d1a; }
+.thesis-project .stack-stage { inset: 34px 24px; display: grid; place-items: center; border: 1px solid #625b52; background: #1e1d1a; }
+.thesis-project .stack-stage img { width: 100%; height: 100%; object-fit: contain; object-position: center; }
+.thesis-project .project-content { display: flex; flex-direction: column; }
+.thesis-project .project-lede { font-size: 15px; line-height: 1.65; }
+.thesis-project .project-content > p + p { margin-top: auto; padding-top: 18px; }
+.thesis-project .project-footer { margin-top: 24px; }
+.project-notes strong { font-size: 14px; }
+.project-notes p { font-size: 14px; line-height: 1.7; }
+.portrait-frame { border: 2px solid #536b80; box-shadow: 0 0 0 8px #eef3f7, 0 0 0 10px #8da3b3; }
+.portrait-frame::before { position: absolute; z-index: 1; inset: 14px; border: 2px solid rgba(16,34,56,.65); content: ''; pointer-events: none; }
+.portrait-frame::after { position: absolute; z-index: 1; top: 14px; right: 14px; width: 42px; height: 42px; border-top: 2px solid #ee765e; border-right: 2px solid #ee765e; content: ''; pointer-events: none; }
+.dark-theme .portrait-frame { border-color: #6e8497; box-shadow: 0 0 0 8px #0d1725, 0 0 0 10px #2b4157; }
+.dark-theme .portrait-frame::before { border-color: rgba(227,236,243,.42); }
+.dark-theme .portrait-frame::after { border-color: #ee765e; }
 .stack-controls { position: absolute; z-index: 2; right: 27px; bottom: 20px; display: flex; align-items: flex-end; }
 .stack-card { position: relative; width: 92px; height: 66px; margin-left: -18px; padding: 0; overflow: hidden; border: 1px solid #7e9bb0; background: #0e1d2d; cursor: pointer; transform: translateY(0) rotate(0); transition: transform .2s ease, border-color .2s ease; }
 .stack-card:first-child { margin-left: 0; } .stack-card img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: center; opacity: .72; } .stack-card span { position: absolute; right: 7px; bottom: 5px; color: #eef3f7; font-size: 10px; font-weight: 750; text-shadow: 0 1px 3px rgba(0,0,0,.65); } .stack-card:hover, .stack-card:focus-visible, .stack-card.is-active { z-index: 3; border-color: #ee765e; transform: translateY(-12px); } .stack-card:hover img, .stack-card:focus-visible img, .stack-card.is-active img { opacity: 1; }
