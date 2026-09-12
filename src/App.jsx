@@ -58,7 +58,7 @@ function PestawayStack() {
 
   return (
     <div className="thesis-stack" aria-label="PestAway thesis snapshots">
-      <div className="visual-topline"><span>THESIS / 2024</span></div>
+      <div className="visual-topline"><span>THESIS / 2025</span></div>
       <div className="stack-stage"><img src={image.src} alt={image.alt} /></div>
     </div>
   )
