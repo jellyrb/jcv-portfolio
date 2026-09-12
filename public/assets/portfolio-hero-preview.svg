@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 988 790">
+  <rect width="988" height="790" fill="#eef3f7"/>
+  <path d="M0 0h988v14H0z" fill="#102238"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="48" y="68" fill="#102238" font-size="24" font-weight="700">JCV<tspan fill="#ee765e">.</tspan></text>
+    <text x="570" y="66" fill="#536b80" font-size="13" font-weight="700" letter-spacing="2">PROJECTS</text>
+    <text x="680" y="66" fill="#536b80" font-size="13" font-weight="700" letter-spacing="2">ABOUT ME</text>
+    <text x="810" y="66" fill="#102238" font-size="13" font-weight="700" letter-spacing="2">GET IN TOUCH</text>
+    <line x1="48" y1="92" x2="940" y2="92" stroke="#c1d0db"/>
+    <text x="48" y="178" fill="#ee765e" font-size="12" font-weight="700" letter-spacing="3">INTEGRATION ENGINEER  •  MANILA, PH</text>
+    <text x="48" y="278" fill="#102238" font-size="64" font-weight="700" letter-spacing="-3">I make complex</text>
+    <text x="48" y="342" fill="#60758a" font-size="64" font-weight="400" letter-spacing="-3">systems work together.</text>
+    <text x="48" y="408" fill="#536b80" font-size="17">Enterprise and Education Infrastructure — from device</text>
+    <text x="48" y="434" fill="#536b80" font-size="17">management and networks to AI chatbot development.</text>
+    <rect x="48" y="482" width="176" height="46" fill="#102238"/>
+    <text x="70" y="511" fill="#eef3f7" font-size="13" font-weight="700" letter-spacing="1">EXPLORE MY WORK  ↗</text>
+    <text x="252" y="511" fill="#102238" font-size="13" font-weight="700" letter-spacing="1">LET&apos;S CONNECT  ↗</text>
+    <rect x="702" y="138" width="238" height="482" fill="#c9d5df" stroke="#536b80" stroke-width="3"/>
+    <image href="portrait-light.jpg" x="703" y="139" width="236" height="480" preserveAspectRatio="xMidYMid slice"/>
+    <rect x="717" y="153" width="208" height="452" fill="none" stroke="#102238" stroke-width="2" opacity=".65"/>
+    <path d="M884 153h41v41M717 564v41h41" fill="none" stroke="#ee765e" stroke-width="3"/>
+  </g>
+</svg>

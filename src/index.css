@@ -134,6 +134,20 @@ h1, h2, h3, p { margin-top: 0; } h1, h2 { letter-spacing: -.055em; line-height: 
 .portfolio-line { display: block; width: 180px; height: 1px; margin-top: 34px; background: #6e8497; }
 .portfolio-line.short { width: 112px; margin-top: 10px; background: #ee765e; }
 .portfolio-nav { position: absolute; right: 26px; bottom: 26px; left: 26px; }
+.portfolio-preview-nav { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; padding-bottom: 18px; border-bottom: 1px solid #3b5368; color: #9cafc1; font-size: 9px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+.portfolio-preview-nav b { color: #eef3f7; font-size: 20px; letter-spacing: -.1em; }
+.portfolio-preview-nav b span { color: #ee765e; }
+.portfolio-preview-content { position: relative; z-index: 1; margin-top: 88px; }
+.portfolio-preview-content .portfolio-kicker { margin-bottom: 21px; }
+.portfolio-preview-content h4 { max-width: 440px; margin: 0 0 22px; color: #eef3f7; font-size: clamp(32px, 4vw, 52px); line-height: .98; letter-spacing: -.06em; }
+.portfolio-preview-content h4 em { color: #9cafc1; font-style: normal; font-weight: 420; }
+.portfolio-preview-content p { max-width: 355px; margin: 0; color: #a9bbca; font-size: 12px; line-height: 1.6; }
+.portfolio-preview-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; color: #eef3f7; font-size: 9px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+.portfolio-preview-actions span:first-child { padding: 10px 12px; color: #102238; background: #eef3f7; }
+.portfolio-preview-actions span:last-child { padding: 9px 11px; border: 1px solid #6e8497; }
+.portfolio-project-visual { min-height: 0; padding: 0; background: #eef3f7; }
+.portfolio-project-visual::before { display: none; }
+.portfolio-project-visual img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .thesis-stack { min-height: 0; aspect-ratio: 988 / 790; background: #0d1d2d; }
 .thesis-stack .stack-stage { inset: 52px 24px 24px; border: 1px solid #45627a; background: #222a31; }
 .thesis-stack .stack-stage::before { display: none; }
@@ -142,6 +156,19 @@ h1, h2, h3, p { margin-top: 0; } h1, h2 { letter-spacing: -.055em; line-height: 
 .thesis-project .thesis-stack { min-height: 470px; aspect-ratio: auto; background: #1e1d1a; }
 .thesis-project .stack-stage { inset: 34px 24px; display: grid; place-items: center; border: 1px solid #625b52; background: #1e1d1a; }
 .thesis-project .stack-stage img { width: 100%; height: 100%; object-fit: contain; object-position: center; }
+.portfolio-project-visual { min-height: 470px; padding: 34px 24px; background: #1e1d1a; }
+.portfolio-project-visual img { width: 100%; height: 100%; border: 1px solid #625b52; object-fit: contain; object-position: center; }
+.project-links a[href="#contact"] { display: none; }
+html { overflow-y: scroll; }
+.scroll-indicator { position: fixed; z-index: 9; top: 50%; right: 12px; width: 22px; height: 58vh; transform: translateY(-50%); }
+.scroll-track { position: absolute; top: 0; right: 0; bottom: 0; width: 22px; cursor: pointer; touch-action: none; user-select: none; background: linear-gradient(to right, transparent 10px, #c1d0db 10px, #c1d0db 12px, transparent 12px); }
+.scroll-fill { position: absolute; top: 0; right: 10px; left: 10px; display: block; background: #ee765e; pointer-events: none; }
+.scroll-thumb { position: absolute; right: 50%; display: grid; width: 30px; height: 30px; place-items: center; border: 2px solid #102238; border-radius: 50%; background: #eef3f7; cursor: grab; transform: translate(50%, -50%); }
+.scroll-thumb.is-dragging { cursor: grabbing; }
+.scroll-thumb img { width: 22px; height: 22px; border-radius: 50%; object-fit: cover; }
+.dark-theme .scroll-track { background: #2b4157; }
+.dark-theme .scroll-thumb { border-color: #e3ecf3; background: #0d1725; }
+@media (max-width: 600px) { .scroll-indicator { right: 5px; } }
 .thesis-project .project-content { display: flex; flex-direction: column; }
 .thesis-project .project-lede { font-size: 15px; line-height: 1.65; }
 .thesis-project .project-content > p + p { margin-top: auto; padding-top: 18px; }

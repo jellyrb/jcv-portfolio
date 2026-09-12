@@ -65,7 +65,44 @@ function PestawayStack() {
 }
 
 function PortfolioProjectVisual() {
-  return <div className="portfolio-project-visual" aria-label="Portfolio project visual"><span className="portfolio-window-top"><b>JCV.</b></span><div className="portfolio-window-body"><span className="portfolio-kicker">INTEGRATION ENGINEER</span><strong>Systems that work<br /><em>together.</em></strong><span className="portfolio-line" /><span className="portfolio-line short" /></div><div className="portfolio-nav"><span>PROJECTS</span><span>ABOUT ME</span><span>CONTACT</span></div></div>
+  return <div className="portfolio-project-visual" aria-label="Portfolio hero section preview"><img src="/assets/portfolio-hero.png" alt="Portfolio Hero section with JCV branding, navigation, headline, and portrait" /></div>
+}
+
+function ScrollIndicator() {
+  const [progress, setProgress] = useState(0)
+  const [isDragging, setIsDragging] = useState(false)
+
+  const setScrollFromPointer = (event) => {
+    const bounds = event.currentTarget.getBoundingClientRect()
+    const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight
+    const nextProgress = Math.max(0, Math.min(1, (event.clientY - bounds.top) / bounds.height))
+    window.scrollTo({ top: nextProgress * scrollableHeight, behavior: 'auto' })
+  }
+
+  useEffect(() => {
+    const updateProgress = () => {
+      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight
+      setProgress(scrollableHeight > 0 ? Math.min(1, window.scrollY / scrollableHeight) : 0)
+    }
+    updateProgress()
+    window.addEventListener('scroll', updateProgress, { passive: true })
+    window.addEventListener('resize', updateProgress)
+    return () => {
+      window.removeEventListener('scroll', updateProgress)
+      window.removeEventListener('resize', updateProgress)
+    }
+  }, [])
+
+  const thumbPosition = `${6 + progress * 88}%`
+  const handleKeyDown = (event) => {
+    const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight
+    if (event.key === 'Home') window.scrollTo({ top: 0, behavior: 'smooth' })
+    if (event.key === 'End') window.scrollTo({ top: scrollableHeight, behavior: 'smooth' })
+    if (event.key === 'PageUp') window.scrollBy({ top: -window.innerHeight * .8, behavior: 'smooth' })
+    if (event.key === 'PageDown') window.scrollBy({ top: window.innerHeight * .8, behavior: 'smooth' })
+  }
+
+  return <aside className="scroll-indicator" aria-label={`Page scroll progress ${Math.round(progress * 100)} percent`}><span className="scroll-track" role="scrollbar" tabIndex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow={Math.round(progress * 100)} onPointerDown={(event) => { event.preventDefault(); setIsDragging(true); event.currentTarget.setPointerCapture(event.pointerId); setScrollFromPointer(event) }} onPointerMove={(event) => { if (isDragging) { event.preventDefault(); setScrollFromPointer(event) } }} onPointerUp={(event) => { setIsDragging(false); event.currentTarget.releasePointerCapture(event.pointerId) }} onPointerCancel={(event) => { setIsDragging(false); event.currentTarget.releasePointerCapture(event.pointerId) }} onKeyDown={handleKeyDown}><span className="scroll-fill" style={{ height: `${progress * 100}%` }} /><span className={`scroll-thumb ${isDragging ? 'is-dragging' : ''}`} style={{ top: thumbPosition }}><img src="/assets/scroll-indicator.png" alt="" /></span></span></aside>
 }
 
 function CertificationArchive() {
@@ -177,6 +214,7 @@ function App() {
 
         <section className="page-section contact-section" id="contact" aria-labelledby="contact-title"><div className="contact-rule" /><SectionLabel index="05">Contact</SectionLabel><div className="contact-layout"><div><h2 id="contact-title">Let&apos;s connect<br /><em>the next system.</em></h2><p>I&apos;m open to conversations about integration engineering, endpoint management, enterprise and education infrastructure, and network-focused opportunities.</p></div><div className="contact-links"><a href="mailto:villanuevajastin.b.c@gmail.com"><span className="contact-link-main"><span className="contact-icon"><ContactIcon type="email" /></span><span>Email Me</span></span><span className="contact-link-meta">villanuevajastin.b.c@gmail.com <Arrow /></span></a><a href="mailto:jastinbrylle.villanueva@powermaccenter.com"><span className="contact-link-main"><span className="contact-icon"><ContactIcon type="email" /></span><span>Work Email</span></span><span className="contact-link-meta">jastinbrylle.villanueva@powermaccenter.com <Arrow /></span></a><a href="https://www.linkedin.com/in/jastin-brylle-villanueva-ece-ect-5a07672b5/" target="_blank" rel="noreferrer"><span className="contact-link-main"><span className="contact-icon"><ContactIcon type="linkedin" /></span><span>LinkedIn</span></span><span className="contact-link-meta">View My Profile <Arrow /></span></a><a href="https://drive.google.com/file/d/1RlW59AWfB5zLasD2tQEQaB-_4lvzmlAH/view?usp=sharing" target="_blank" rel="noreferrer"><span className="contact-link-main"><span className="contact-icon"><ContactIcon type="resume" /></span><span>Résumé</span></span><span className="contact-link-meta">View Resume PDF <Arrow /></span></a></div></div><footer><span>JCV<span className="accent">.</span> / INTEGRATION ENGINEER</span><span>© 2026</span></footer></section>
       </main>
+      <ScrollIndicator />
       {showBackToTop && <a className="back-to-top" href="#top" aria-label="Back to top"><span aria-hidden="true">↑</span><span>Back to Top</span></a>}
     </div>
   )
